@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  	<meta description="Bienvenue sur 'Quelques Projets', vous vous trouvez sur la page playlist j'y ai rassembler les mumsiques que j'écoute quand je code.">
+    <title>Quelques Projets - Les playlist</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+@import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+body
+{
+   font-family: 'Great Vibes', cursive;
+}
+header 
+{
+position: fixed;
+top: 0;
+right: 0;
+left: 0;
+background: rgba(211, 211, 211, 0.5);
+height: 100px;
+border-bottom: 1.5px solid whitesmoke;
+}  
+@media screen and (max-width: 940px) 
+{
+  header 
+  {
+    height: 60px;
+  }
+}
+.container 
+{
+width: 100%;
+max-width: 1240px;
+margin: 0 auto;
+padding: 0 100px;
+}
+.logo 
+{
+margin-top: 25px;
+width: 50px;
+height: 50px;
+display: inline-block;
+border-radius: 5px;
+background: transparent;
+}  
+@media screen and (max-width: 940px) 
+{
+  .logo
+  {
+    margin-top: 5px;
+  }
+}
+.logo svg 
+{
+height: 30px;
+}
+.logo svg path 
+{
+fill: black;
+}
+nav 
+{
+float: right;
+}
+@media screen and (max-width: 940px) 
+{
+  nav
+  {
+  visibility: hidden;
+  height: 0;
+  float: none;
+  position: fixed;
+  /*top: 100px;*/
+  right: 0;
+  left: 0;
+  background: transparent;
+  transition: all 0.4s ease;
+  transition-delay: 0.2s;
+  }
+}
+nav ul 
+{
+list-style: none;
+padding: 0;
+margin: 0;
+}
+@media screen and (max-width: 940px) 
+{
+    nav ul
+    {
+    width: 100%;
+    padding: 0 20px;
+    height: 100%;
+    overflow-y: scroll;
+    }
+}
+nav ul li 
+{
+position: relative;
+float: left;
+}
+@media screen and (min-width: 941px) 
+{
+nav ul li:not(:first-child) {
+          margin-left: 30px;
+        }
+nav ul li:not(:last-child) {
+          margin-right: 30px;
+        }
+nav ul li:nth-child(-n+4):after {
+            position: absolute;
+            top: 34px;
+            right: -30px;
+            content: "/";
+            font-family: inherit;
+            font-size: 17px;
+            font-weight: bold;
+            color: black;
+          }
+}
+
+@media screen and (max-width: 940px) 
+{
+nav ul li
+        {
+        float: none;
+        width: 100%;
+        margin: 0;
+        text-align: center;
+        transition: all 0.3s ease;
+        transform: scale(1.1) translateY(-20px);
+        opacity: 0;
+        }
+nav ul li:nth-child(1) 
+        {
+          transition-delay: 0.25s;
+        }
+nav ul li:nth-child(2) 
+        {
+          transition-delay: 0.2s;
+        }
+nav ul li:nth-child(3) 
+        {
+          transition-delay: 0.15s;
+        }
+nav ul li:nth-child(4) 
+        {
+          transition-delay: 0.1s;
+        }
+nav ul li:nth-child(5) 
+        {
+          transition-delay: 0.05s;
+        }
+}
+nav ul li a 
+{
+  text-decoration: none;
+  color: black;
+  font-size: 18px;
+  letter-spacing: 0.25em;
+  display: block;
+  transition: color .3s ease;
+}
+nav ul li a:hover 
+{
+    color: black;
+}
+@media screen and (min-width: 941px) 
+{
+    nav ul li a 
+    {
+    line-height: 80px;
+    transition: box-shadow 0.3s ease;
+    box-shadow: inset 0 0 0 black;
+    }
+    nav ul li a:hover 
+    {
+      color: black;
+      box-shadow: inset 0 -3px 0 whitesmoke;
+    }
+}
+@media screen and (max-width: 940px) 
+{
+    nav ul li a
+    {
+    text-transform: none;
+    font-size: 20px;
+    letter-spacing: 0;
+    font-weight: 400;
+    line-height: 64px;
+    border-bottom: 1px solid whitesmoke;
+    background: rgba(245, 245, 245, 0.5);
+    }
+}
+
+.menustate 
+{
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  display: block;
+  display: none;
+  width: 56px;
+  height: 56px;
+  cursor: pointer;
+}
+@media screen and (max-width: 940px) 
+{
+    .menustate 
+    {
+    display: block;
+    }
+}
+.menustate span 
+  {
+    position: absolute;
+    top: 27px;
+    left: 16px;
+    width: 24px;
+    height: 2px;
+    display: block;
+    background: black;
+    pointer-events: none;
+  }
+.menustate span::before,
+.menustate span::after 
+  {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 24px;
+      height: 2px;
+      background: whitesmoke;
+      transition: all 0.2s ease;
+    }
+.menustate span::before 
+  {
+      transform: translateY(-6px);
+    }
+.menustate span::after 
+  {
+      transform: translateY(6px);
+}
+
+#mNav.checked ~ nav{
+    visibility: visible;
+    height: 100%;
+    transition: all 0.2s ease;
+}
+#mNav.checked ~ nav ul li {
+      transform: scale(1) translateY(0);
+      opacity: 1;
+}
+#mNav.checked ~ nav ul li:nth-child(1) {
+        transition-delay: 0.05s;
+      }
+#mNav.checked ~ nav ul li:nth-child(2) {
+        transition-delay: 0.1s;
+      }
+#mNav.checked ~ nav ul li:nth-child(3) {
+        transition-delay: 0.15s;
+      }
+#mNav.checked ~ nav ul li:nth-child(4) {
+        transition-delay: 0.2s;
+      }
+#mNav.checked ~ nav ul li:nth-child(5) {
+        transition-delay: 0.25s;
+      }
+#mNav.checked + .menustate span {
+    visibility: visible;
+    background: grey;
+}
+#mNav.checked + .menustate span:before {
+      transform: translateY(0) rotate(45deg);
+      visibility: visible;
+    }
+#mNav.checked + .menustate span:after {
+      transform: translateY(0) rotate(-45deg);
+      visibility: visible;
+    }
+
+
+
+*
+{
+
+  box-sizing: border-box;
+}
+.content
+{
+  width: 100%;
+  max-width: 1200px;
+  margin: 150px auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+  grid-gap: 1em;
+  padding: 1em;
+  font-family: arial;
+} 
+.content .card
+{
+    background: linear-gradient(to bottom right,whitesmoke,grey, lightgrey);
+    border-radius: 8px;
+    text-align: center;
+    color: #000000;
+    box-shadow: 0 2px 5px 0 black;
+    transition: all .2s;
+    overflow: hidden;
+}    
+.content .card:hover
+{
+    transform: translateY(-.5em);
+    box-shadow: 0 10px 5px 0 rgb(104, 95, 107);
+}
+.content .card img
+{
+      width: 110%;
+      height: 200px;
+      display: block;
+      object-fit: cover;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+}
+    
+.content .card__title
+{
+      margin-bottom: .5em;
+      font-size: 1.4em;
+ }
+.content .card__description
+{
+      padding: .5em;
+      line-height: 1.3;
+ }
+.content .card__btn
+{
+      background: lightgrey;
+      line-height: 2;
+      padding: 0 1.5em;
+      border-radius: 1em;
+      color: #000;
+      display: inline-block;
+      text-decoration: none;
+      margin: 1em;
+      transition: all .2s;
+}
+.content .card__btn:hover
+{
+        background: white;
+}
+ 
+</style>
+</head>
+<body>
+    <header>
+        <div class="container">
+          <img src='../img/ajs.png' class="logo">
+         <!-- <a class="logo"></a>-->
+          <input type="checkbox" id="mNav" style="display: none">
+          <label for="mNav" class="menustate"><span></span></label>
+          <nav>
+            <ul>
+              <li><a href="../../index.html">Accueil</a></li>
+              <li><a href="quelques-projets-works.html">Les projets</a></li>
+              <li><a href="#">Bouts de code</a></li>
+              <li><a href="quelques-projets-playlist.html">Playlist</a></li>
+              <li><a href="#">Drawning</a></li>
+            </ul>
+          </nav>
+        </div>
+    </header>
+
+   <div class="content">
+
+        <div class="card">
+          <img src="https://images-na.ssl-images-amazon.com/images/I/81Bvk-ayKGL._SL1448_.jpg" alt="" class="card__img">
+          <h4 class="card__title">Skillet</h4>
+          <p class="card__description">"Comatose - 2006"</p> <hr> Album </br>17 titres </br> Genre Rock Alternative / Metal Alternative</p>
+          <a href="https://open.spotify.com/album/16ElbnOtY2UgGaPKoLfst4?si=bnrLeYyZRuWl-DRii9Hwrg" target="_blank" class="card__btn">Ecoutez</a>
+        </div>
+        
+        <div class="card">
+            <img src="https://m.media-amazon.com/images/I/71DePb91oZL._SS500_.jpg" alt="" class="card__img">
+            <h4 class="card__title">Skillet</h4>
+            <p class="card__description">"Awake - 2009"</p> <hr> Album </br>15 titres </br> Genre Rock Alternative</p>
+            <a href="https://open.spotify.com/playlist/1fhdafXkacGqz8mIJwazyI?si=Q18mFEwsQAWt_Z98Rt00mw" target="_blank" class="card__btn">Ecoutez</a>
+        </div>
+
+        <div class="card">
+          <img src="https://i.ytimg.com/vi/Fdk_tFLVSkI/maxresdefault.jpg" alt="" class="card__img">
+          <h4 class="card__title">Tiffany Sinko</h4>
+          <p class="card__description">"Choose You - 2015"</p> <hr> Sinlge </br>1 titre</br> Genre Pop Rock</p>
+            <a href="#" target="_blank" class="card__btn">Ecoutez</a>
+        </div>
+
+        <div class="card">
+            <img src="https://www.tiffanysinko.com/images/ANCHORED-ep-748.jpg" alt="" class="card__img">
+            <h4 class="card__title">Tiffany Sinko</h4>
+            <p class="card__description">"Anchored - 2016"</p> <hr> Album [EP] </br>4 titres </br> Genre Pop Rock</p>
+              <a href="#" target="_blank" class="card__btn">Ecoutez</a>
+          </div>
+        
+        <div class="card">
+          <img src="https://m.media-amazon.com/images/I/814IK6SkwYL._SS500_.jpg" alt="" class="card__img">
+          <h4 class="card__title">Fools For Rowan</h4>
+          <p class="card__description">"Who Killed Amanda Day? - 2012" <hr> Album de type [EP] </br>6 titres </br> Genre Rock Alternative</p>
+          <a href="https://open.spotify.com/playlist/2ykINoBZAyxr7jV2AZPrtV?si=atVpkfI-SJmdcbVp6rbk2w" target="_blank" class="card__btn">Ecoutez</a>
+        </div>
+        <div class="card">
+            <img src="https://i1.wp.com/www.musicinbelgium.net/wp-content/uploads/2019/08/beyondtheblack_heartofthehurricane_blackedition.jpg?fit=425%2C425&ssl=1" alt="Heart Of The Hurricane (Black Edition)" class="card__img">
+            <h4 class="card__title">Beyond The Black</h4>
+            <p class="card__description">"Heart Of The Hurricane (Black Edition) - 2019" <hr> Album  </br>CD1 15/ CD2 13 titres </br> Genre Symphonic Metal</p>
+          <a href="https://open.spotify.com/playlist/1eDBXIsAsvgE8VWmVjgqiM?si=LE-kt6kcT5y7HnW-sWpxmw" target="_blank" class="card__btn">Ecoutez</a>
+        </div>
+        <div class="card">
+          <img src="https://images-na.ssl-images-amazon.com/images/I/51SCu9sZxKL._SY355_.jpg" alt="" class="card__img">
+          <h4 class="card__title">Icon For Hire</h4>
+          <p class="card__description">"Scripted - 2011" <hr> Album </br>13 titres </br> Genre Pop-Punk / Alternative Rock / Electronic Rock</p>
+          <a href="#" target="_blank" class="card__btn">Ecoutez</a>
+        </div>
+
+        <div class="card">
+            <img src="https://www.therockpit.net/wp-content/uploads/2020/03/stitchedupheart-darkness.jpg" alt="" class="card__img">
+            <h4 class="card__title">Stitched Up Heart</h4>
+            <p class="card__description">"Darkness - 2020" <hr> Album  </br>11 titres </br> Genre Alternative Rock / Alternative Metal</p>
+          <a href="https://open.spotify.com/playlist/3H8VKvPclwQqQbxVdH9BE2?si=e28LsjVZRWysh1e8Ali_qA" target="_blank" class="card__btn">Ecoutez</a>
+        </div>
+
+        <div class="card">
+            <img src="https://cdn-38.myzcloud.me/img/69/5014599/13208242.jpg" alt="" class="card__img">
+            <h4 class="card__title">Skarlett Riot</h4>
+            <p class="card__description">"Tear Me Down - 2013" <hr> Album  </br>10 titres </br> Genre Alternative Rock / Hard Rock</p>
+          <a href="https://open.spotify.com/album/7h5WVuERZ8TkOC0YJIM1Lt?si=vN3WxdPvRPSRO8RT-VETYA" target="_blank" class="card__btn">Ecoutez</a>
+        </div>
+
+        <div class="card">
+            <img src="https://cdn-37-a.myzcloud.me/img/68/3640956/16262477.jpg" alt="" class="card__img">
+            <h4 class="card__title">Fools For Rowan</h4>
+            <p class="card__description">"Twisted. Tied up. Tangled. - 2009" <hr> Album  </br>11 titres </br> Genre Alternative Rock</p>
+          <a href="#" target="_blank" class="card__btn">Ecoutez</a>
+        </div>
+
+		<div class="card">
+            <img src="https://cdn-41-a.myzcloud.me/img/70/929414/40461981.jpg" alt="" class="card__img">
+            <h4 class="card__title">Fit For Rivals</h4>
+            <p class="card__description">"Steady Damage - 2009" <hr> Album  </br>10 titres </br> Genre Alternative Rock</p>
+          <a href="#" target="_blank" class="card__btn">Ecoutez</a>
+        </div>
+
+		<div class="card">
+            <img src="" alt="" class="card__img">
+            <h4 class="card__title">Fireflight</h4>
+            <p class="card__description">"Now - 2012" <hr> Album  </br>12 titres </br> Genre  	Alternative Rock / Hard Rock / Post-Grunge</p>
+          <a href="#" target="_blank" class="card__btn">Ecoutez</a>
+        </div>
+
+		<div class="card">
+            <img src="" alt="" class="card__img">
+            <h4 class="card__title">Blackbriar</h4>
+            <p class="card__description">"... - ..." <hr> Album  </br>.. titres </br> Genre ...</p>
+          <a href="#" target="_blank" class="card__btn">Ecoutez</a>
+        </div>
+
+		<div class="card">
+            <img src="" alt="" class="card__img">
+            <h4 class="card__title">Halestorm</h4>
+            <p class="card__description">"... - ..." <hr> Album  </br>.. titres </br> Genre ...</p>
+          <a href="#" target="_blank" class="card__btn">Ecoutez</a>
+        </div>
+
+		<div class="card">
+            <img src="" alt="" class="card__img">
+            <h4 class="card__title">Lindsay Stirling</h4>
+            <p class="card__description">"... - ..." <hr> Album  </br>.. titres </br> Genre ...</p>
+          <a href="#" target="_blank" class="card__btn">Ecoutez</a>
+        </div>
+
+		<div class="card">
+            <img src="https://cdn-40-a.myzcloud.me/img/70/12012769/31498271.jpg" alt="" class="card__img">
+            <h4 class="card__title">Fit For Rivals</h4>
+            <p class="card__description">"Freak Machine - 2016" <hr> Album  </br>10 titres </br> Genre Alternative Rock / Punk-Rock</p>
+          <a href="#" target="_blank" class="card__btn">Ecoutez</a>
+        </div>
+
+		<div class="card">
+            <img src="" alt="" class="card__img">
+            <h4 class="card__title">Amaranthe</h4>
+            <p class="card__description">"... - ..." <hr> Album  </br>.. titres </br> Genre ...</p>
+          <a href="#" target="_blank" class="card__btn">Ecoutez</a>
+        </div>
+
+		<div class="card">
+            <img src="" alt="" class="card__img">
+            <h4 class="card__title">Tonight Alive</h4>
+            <p class="card__description">"... - ..." <hr> Album  </br>.. titres </br> Genre ...</p>
+          <a href="#" target="_blank" class="card__btn">Ecoutez</a>
+        </div>
+
+        <div class="card">
+            <img src="https://cdn-41-a.myzcloud.me/img/70/14957729/37947354.jpg" alt="" class="card__img">
+            <h4 class="card__title">Skarlett Riot</h4>
+            <p class="card__description">"Regenerate - 2017" <hr> Album  </br>10 titres </br> Genre Alternative Rock / Hard Rock</p>
+          <a href="#" target="_blank" class="card__btn">Ecoutez</a>
+        </div>
+
+        <div class="card">
+            <img src="" alt="" class="card__img">
+            <h4 class="card__title">Thousand Foot Krutch</h4>
+            <p class="card__description">"... - ..." <hr> Album  </br>.. titres </br> Genre ...</p>
+          <a href="#" target="_blank" class="card__btn">Ecoutez</a>
+        </div>
+
+		<div class="card">
+            <img src="" alt="" class="card__img">
+            <h4 class="card__title">Exit Eden</h4>
+            <p class="card__description">"... - ..." <hr> Album  </br>.. titres </br> Genre ...</p>
+          <a href="#" target="_blank" class="card__btn">Ecoutez</a>
+        </div>
+		<div class="card">
+            <img src="" alt="" class="card__img">
+            <h4 class="card__title">BAND-MAID</h4>
+            <p class="card__description">"... - ..." <hr> Album  </br>.. titres </br> Genre ...</p>
+          <a href="#" target="_blank" class="card__btn">Ecoutez</a>
+        </div>
+		<div class="card">
+            <img src="" alt="" class="card__img">
+            <h4 class="card__title">SCANDAL</h4>
+            <p class="card__description">"... - ..." <hr> Album  </br>.. titres </br> Genre ...</p>
+          <a href="#" target="_blank" class="card__btn">Ecoutez</a>
+        </div>
+		<div class="card">
+            <img src="" alt="" class="card__img">
+            <h4 class="card__title">...</h4>
+            <p class="card__description">"... - ..." <hr> Album  </br>.. titres </br> Genre ...</p>
+          <a href="#" target="_blank" class="card__btn">Ecoutez</a>
+        </div>
+		<div class="card">
+            <img src="" alt="" class="card__img">
+            <h4 class="card__title">...</h4>
+            <p class="card__description">"... - ..." <hr> Album  </br>.. titres </br> Genre ...</p>
+          <a href="#" target="_blank" class="card__btn">Ecoutez</a>
+        </div>
+
+		<div class="card">
+            <img src="https://m.media-amazon.com/images/I/81YsvvY4r6L._SS500_.jpg" alt="" class="card__img">
+            <h4 class="card__title">Eir Aoi</h4>
+            <p class="card__description">"Best-B - 2011" <hr> Album  </br>13 titres </br> Genre J-Pop</p>
+          <a href="https://open.spotify.com/album/3wMhHVTapqataFSP8FeDTh" target="_blank" class="card__btn">Ecoutez</a>
+        </div>
+
+        <div class="card">
+            <img src="https://m.media-amazon.com/images/I/81QfYrX5MrL._SS500_.jpg" alt="" class="card__img">
+            <h4 class="card__title">Eir Aoi</h4>
+            <p class="card__description">"Best-A - 2012" <hr> Album  </br>13 titres </br> Genre J-Pop</p>
+          <a href="https://open.spotify.com/album/3Oejln5ISEHGTGTZsgJoHR?si=mBVuJkDcTcaLwGv89TrgvQ" target="_blank" class="card__btn">Ecoutez</a>
+        </div>
+
+		<div class="card">
+            <img src="https://cdn-41-a.myzcloud.me/img/70/16411106/43685172.jpg" alt="" class="card__img">
+            <h4 class="card__title">Girls' Generation</h4>
+            <p class="card__description">"Gee - 2009" <hr> Album (Mini) </br>5 titres </br> Genre K-Pop / Dance-Pop / Ballad</p>
+          <a href="https://open.spotify.com/playlist/24bEHD6CcnGvafjP9L22nM?si=af03X1nnRJeoYfH-hgQfMQ" target="_blank" class="card__btn">Ecoutez</a>
+        </div>
+
+        <div class="card">
+            <img src="https://cdn-41-a.myzcloud.me/img/70/1171437/40218231.jpg" alt="" class="card__img">
+            <h4 class="card__title">Girls' Generation</h4>
+            <p class="card__description">"1St Japan Album - 2011" <hr> Album  </br>12 titres </br> Genre J-Pop</p>
+          <a href="404-error-glitch.html" class="card__btn">Ecoutez</a>
+        </div>
+
+      </div>  
+
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>    
+      
+<script>
+    $(function() { 
+  var mobileNav = $('#mNav')
+      // Add class
+    mobileNav.click(function(){
+    mobileNav.toggleClass('checked');     
+  });
+});
+</script>      
+</body>
+</html>

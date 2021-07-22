@@ -1,0 +1,410 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+@import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+body
+{
+	font-family: 'Great Vibes', cursive;
+}
+header 
+{
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  background: transparent;
+  height: 100px;
+  border-bottom: 1.5px solid whitesmoke;
+}  
+@media screen and (max-width: 940px) 
+{
+  header 
+  {
+    height: 60px;
+  }
+}
+.container 
+{
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 100px;
+}
+.logo 
+{
+  margin-top: 25px;
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  border-radius: 5px;
+  background: transparent;
+}  
+@media screen and (max-width: 940px) 
+{
+  .logo
+  {
+    margin-top: 5px;
+  }
+}
+.logo svg 
+{
+  height: 30px;
+}
+.logo svg path 
+{
+  fill: black;
+}
+nav 
+{
+  float: right;
+}
+@media screen and (max-width: 940px) 
+{
+  nav
+  {
+  visibility: hidden;
+  height: 0;
+  float: none;
+  position: fixed;
+  /*top: 100px;*/
+  right: 0;
+  left: 0;
+  background: transparent;
+  transition: all 0.4s ease;
+  transition-delay: 0.2s;
+  }
+}
+nav ul 
+{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+@media screen and (max-width: 940px) 
+{
+    nav ul
+    {
+    width: 100%;
+    padding: 0 20px;
+    height: 100%;
+    overflow-y: scroll;
+    }
+}
+nav ul li 
+{
+  position: relative;
+  float: left;
+}
+@media screen and (min-width: 941px) 
+{
+nav ul li:not(:first-child) {
+          margin-left: 30px;
+        }
+nav ul li:not(:last-child) {
+          margin-right: 30px;
+        }
+nav ul li:nth-child(-n+4):after {
+            position: absolute;
+            top: 34px;
+            right: -30px;
+            content: "/";
+            font-family: inherit;
+            font-size: 15px;
+            font-weight: bold;
+            color: black;
+          }
+}
+@media screen and (max-width: 940px) 
+{
+nav ul li
+        {
+        float: none;
+        width: 100%;
+        margin: 0;
+        text-align: center;
+        transition: all 0.3s ease;
+        transform: scale(1.1) translateY(-20px);
+        opacity: 0;
+        }
+nav ul li:nth-child(1) 
+        {
+          transition-delay: 0.25s;
+        }
+nav ul li:nth-child(2) 
+        {
+          transition-delay: 0.2s;
+        }
+nav ul li:nth-child(3) 
+        {
+          transition-delay: 0.15s;
+        }
+nav ul li:nth-child(4) 
+        {
+          transition-delay: 0.1s;
+        }
+nav ul li:nth-child(5) 
+        {
+          transition-delay: 0.05s;
+        }
+}
+nav ul li a 
+{
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+  letter-spacing: 0.25em;
+  display: block;
+  transition: color .3s ease;
+}
+nav ul li a:hover 
+{
+   color: black;
+}
+@media screen and (min-width: 941px) 
+{
+    nav ul li a 
+    {
+    line-height: 80px;
+    transition: box-shadow 0.3s ease;
+    box-shadow: inset 0 0 0 black;
+    }
+    nav ul li a:hover 
+    {
+      color: black;
+      box-shadow: inset 0 -3px 0 whitesmoke;
+    }
+}
+@media screen and (max-width: 940px) 
+{
+    nav ul li a
+    {
+    text-transform: none;
+    font-size: 20px;
+    letter-spacing: 0;
+    font-weight: 400;
+    line-height: 64px;
+    border-bottom: 1px solid whitesmoke;
+    background: rgba(245, 245, 245, 0.5);
+    }
+}
+
+.menustate 
+{
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  display: block;
+  display: none;
+  width: 56px;
+  height: 56px;
+  cursor: pointer;
+}
+@media screen and (max-width: 940px) 
+{
+    .menustate 
+    {
+    display: block;
+    }
+}
+.menustate span 
+{
+  position: absolute;
+  top: 27px;
+  left: 16px;
+  width: 24px;
+  height: 2px;
+  display: block;
+  background: black;
+  pointer-events: none;
+}
+.menustate span::before,
+.menustate span::after 
+{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 24px;
+  height: 2px;
+  background: whitesmoke;
+  transition: all 0.2s ease;
+}
+.menustate span::before 
+{
+  transform: translateY(-6px);
+}
+.menustate span::after 
+{
+  transform: translateY(6px);
+}
+
+#mNav.checked ~ nav
+{
+  visibility: visible;
+  height: 100%;
+  transition: all 0.2s ease;
+}
+#mNav.checked ~ nav ul li 
+{
+  transform: scale(1) translateY(0);
+  opacity: 1;
+}
+#mNav.checked ~ nav ul li:nth-child(1)
+{
+  transition-delay: 0.05s;
+}
+#mNav.checked ~ nav ul li:nth-child(2) 
+{
+  transition-delay: 0.1s;
+}
+#mNav.checked ~ nav ul li:nth-child(3)
+{
+  transition-delay: 0.15s;
+}
+#mNav.checked ~ nav ul li:nth-child(4) 
+{
+  transition-delay: 0.2s;
+}
+#mNav.checked ~ nav ul li:nth-child(5) 
+{
+  transition-delay: 0.25s;
+}
+#mNav.checked + .menustate span 
+{
+  visibility: visible;
+  background: grey;
+}
+#mNav.checked + .menustate span:before 
+{
+  transform: translateY(0) rotate(45deg);
+  visibility: visible;
+}
+#mNav.checked + .menustate span:after 
+{
+  transform: translateY(0) rotate(-45deg);
+  visibility: visible;
+}
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+.content 
+{
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+.swipe 
+{
+    height: 100%;
+    flex-basis: 50%;
+    flex-shrink: 1;
+    transition: .5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.swipe:hover 
+{
+    flex-basis: 55%;
+}
+.swipe__left 
+{
+    background: lightgrey;
+    background-size: cover;
+}
+
+.swipe__right 
+{
+    background: url("../img/A1-fond-visage.jpg") no-repeat center;
+    background-size: cover;
+}
+.box 
+{
+    width: 100%;
+    max-width: 450px;
+    height: 500px;
+    padding: 30px;
+    color: black;
+    border-radius: 4px;
+}
+.box .s_head 
+{
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+.box .b_head 
+{
+    font-size: 48px;
+    line-height: 44px;
+    margin-bottom: 15px;
+}
+.box p 
+{
+    font-size: 22px;
+  	font-weight: 500;
+    line-height: 30px;
+    margin-bottom: 60px;
+}
+.box li.social-links
+{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    margin-bottom: 35px;
+    list-style: none;
+}
+.box li.social-links a
+{
+    background-color: lightgrey;
+    color: black;
+    border: 1px solid black;
+    border-radius: 25%;
+    padding: 5px;
+}
+.box li.social-links a:hover
+{
+    background-color: black;
+    color: whitesmoke;
+}
+.box a .btn1
+{
+    display: flex;
+    justify-content: space-between;
+}
+.btn1
+{
+    color: #000;
+    text-decoration: none;
+    padding: 12px 10px;
+    text-align: center;
+    background: whitesmoke;
+    font-size: 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: max-content;
+    transition: .5s;
+}
+.btn1:hover 
+{
+    background: grey;
+}
+
+@media screen and (max-width: 768px) {
+    .content 
+    {
+        display: block;
+        height: 100%;
+    }
+
+    .swipe 
+    {
+        flex-basis: 100%;
+        padding: 40px 0;
+    }
+}
